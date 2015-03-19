@@ -29,8 +29,8 @@ env:
   DISCOURSE_HOSTNAME: <%= @discourse_hostname %> 
   DISCOURSE_SMTP_ADDRESS: <%= @discourse_smtp %> 
   #DISCOURSE_SMTP_PORT: 587                 
-  DISCOURSE_SMTP_USER_NAME: <%= @discourse_smtp_user %> 
-  DISCOURSE_SMTP_PASSWORD: <%= @discourse_user_pw %>
+  DISCOURSE_SMTP_USER_NAME: <%= @smtp_user %> 
+  DISCOURSE_SMTP_PASSWORD: <%= @smtp_pw %>
 
 ## These containers are stateless, all data is stored in /shared
 volumes:
