@@ -40,8 +40,8 @@ class discourse (
     $discourse_email            = $discourse::params::discourse_email, 
     $discourse_hostname         = $discourse::params::discourse_hostname,
     $discourse_smtp             = $discourse::params::discourse_smtp,
-    $smtp_user                  = $discourse::params::discourse_smtp_user,
-    $smtp_pw                    = $discourse::params::discourse_user_pw,
+    $smtp_user                  = $discourse::params::smtp_user,
+    $smtp_pw                    = $discourse::params::smtp_pw,
     $plugins                    = $discourse::params::plugins,   
     $ssl_enabled                = $discourse::params::ssl_enabled,
     $discourse_root             = $discourse::params::discourse_root,
@@ -59,8 +59,8 @@ class discourse (
         discourse_email     => $discourse_email,
         discourse_hostname  => $discourse_hostname,
         discourse_smtp      => $discourse_smtp,
-        discourse_smtp_user => $discourse_smpt_user,
-        discourse_user_pw   => $discourse_user_pw,
+        smtp_user           => $smtp_user,
+        smtp_pw             => $smtp_pw,
         discourse_root      => $discourse_root,
     }
     ->
