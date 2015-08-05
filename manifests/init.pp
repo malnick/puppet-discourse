@@ -42,6 +42,8 @@ class discourse (
     $discourse_project_repo     = $discourse::params::discourse_project_repo,
     $ssl_cert                   = undef,
     $ssl_key                    = undef,
+    $mandril_api_key            = undef,
+    $discourse_psql_pw          = undef,
 ) inherits discourse::params {
     class { ::discourse::install:
       discourse_root          => $discourse_root,
@@ -50,10 +52,12 @@ class discourse (
     }
     ->
     class { ::discourse::config:
-      $ssl_cert       => $ssl_cert,
-      $ssl_key        => $ssl_key,
-      $pup_templates  => $pup_templates,
-      $discourse_root => $discourse_root,
+      ssl_cert           => $ssl_cert,
+      ssl_key            => $ssl_key,
+      pup_templates      => $pup_templates,
+      discourse_root     => $discourse_root,
+      mandril_api_key    => $mandril_api_key,
+      discourse_psql_pw  => $discourse_psql_pw,
     }
     ->
     class { ::discourse::service: discourse_root => $discourse_root }

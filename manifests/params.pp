@@ -1,5 +1,7 @@
 class discourse::params {
-
+    $discourse_root             = '/var/discourse'
+    $mandril_api_key            = undef
+    $discourse_psql_pw          = undef
     $ssl_enabled                = false
     $ssl_key                    = undef
     $ssl_cert                   = undef
