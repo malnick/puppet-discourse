@@ -9,4 +9,5 @@ class discourse::params {
     $docker_bind                = '0.0.0.0'
     $discourse_project_repo     = 'https://github.com/discourse/discourse_docker.git', 
     $pup_templates              = ['web_only.yml']
+    $pup_templates_module       = 'discourse'
 }
