@@ -1,7 +1,7 @@
 define discourse::pup_template (
   $template             = $name,
   $discourse_root,
-  $pup_template_module,
+  $pup_templates_module,
 ){
   file { $template:
     ensure    => file,
