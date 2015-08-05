@@ -5,10 +5,9 @@ class discourse::config (
   $ssl_key                    = $discourse::params::ssl_key, 
   $ssl_cert                   = $discourse::params::ssl_cert,
 ) inherits discourse::params {
-  $pup_templates.each |$t| {
-    file { "${discourse_root}/containers/${t}":
-      ensure  => file,
-      content => template("${pup_templates_module}/${t}", 
-    }
+
+  discourse::pup_template { $pup_templates:
+    pup_templates_module  => $pup_templates_module,
+    discourse_root        => $discourse_root,
   }
 }
