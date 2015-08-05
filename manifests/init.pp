@@ -39,7 +39,7 @@ class discourse (
     $discourse_root             = $discourse::params::discourse_root,
     $manage_docker              = $discourse::params::manage_docker,
     $pup_templates              = $discourse::params::pup_templates,
-    $pup_templates_modules      = $discourse::params::pup_templates_module,
+    $pup_templates_module       = $discourse::params::pup_templates_module,
     $discourse_project_repo     = $discourse::params::discourse_project_repo,
     $ssl_cert                   = undef,
     $ssl_key                    = undef,
