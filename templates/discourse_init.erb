@@ -1,0 +1,82 @@
+#!/bin/bash
+LAUNCHER_CMD=<%= @discourse_root %>/launcher
+DISCOURSE_ROOT=<%= @discourse_root %>
+PID_PATH=/var/run/discourse.pid
+
+is_running() {
+# launcher status cmd?
+}
+
+start() {
+  if ! is_running; then
+    ./$LAUNCHER_CMD start app # CHECK THIS
+    if $? > 0; then
+      echo "Failed to start
+      return 1
+    fi
+    echo $? > $PID_PATH
+    return 0
+  else
+    echo "Discourse already running"
+    return 0
+  fi
+}
+
+stop() {
+  if is_running; then
+    echo "Discourse already running"
+    return 0
+  else
+    ./$LAUNCHER_CMD app stop # CHECK THIS
+    if $? > 0; then
+      echo "Failed to stop Discourse"
+      return 1
+    fi
+    return 0
+  fi
+}
+
+status() {
+  if is_running; then
+    echo "Discourse is running"
+    return $@
+  else
+    echo "Discourse is not running"
+    return $@
+  fi
+}
+
+bootstrap() {
+  if is_running; then
+    stop
+  fi
+  ./$LAUNCHER_CMD bootstrap app < y
+  if ! is_running; then
+    start
+  fi
+  return $@
+}
+
+case "$1" in 
+  start)
+    start
+    return $@
+    ;;
+  stop)
+    stop
+    ;;
+  restart)
+    stop
+    sleep 3
+    start
+    ;;
+  status)
+    status
+    ;;
+  *)
+    echo "Usage: start|stop|restart|status"
+    exit 1
+    ;;
+esac
+exit 0
+    
