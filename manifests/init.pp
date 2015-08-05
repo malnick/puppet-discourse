@@ -36,32 +36,24 @@
 # Copyright 2015 Your name here, unless otherwise noted.
 #
 class discourse (
-    
-    $discourse_email            = $discourse::params::discourse_email, 
-    $discourse_hostname         = $discourse::params::discourse_hostname,
-    $discourse_smtp             = $discourse::params::discourse_smtp,
-    $smtp_user                  = $discourse::params::smtp_user,
-    $smtp_pw                    = $discourse::params::smtp_pw,
-    $plugins                    = $discourse::params::plugins,   
-    $ssl_enabled                = $discourse::params::ssl_enabled,
     $discourse_root             = $discourse::params::discourse_root,
     $manage_docker              = $discourse::params::manage_docker,
-
+    $pup_templates              = $discourse::params::pup_templates,
+    $discourse_project_repo     = $discourse::params::discourse_project_repo,
+    $ssl_cert                   = undef,
+    $ssl_key                    = undef,
 ) inherits discourse::params {
     class { ::discourse::install:
-      discourse_root   => $discourse_root,
-      manage_docker    => $manage_docker,
+      discourse_root          => $discourse_root,
+      discourse_project_repo  => $discourse_project_repo,
+      manage_docker           => $manage_docker,
     }
     ->
     class { ::discourse::config:
-        ssl_enabled         => $ssl_enabled,
-        plugins             => $plugins,
-        discourse_email     => $discourse_email,
-        discourse_hostname  => $discourse_hostname,
-        discourse_smtp      => $discourse_smtp,
-        smtp_user           => $smtp_user,
-        smtp_pw             => $smtp_pw,
-        discourse_root      => $discourse_root,
+      $ssl_cert       => $ssl_cert,
+      $ssl_key        => $ssl_key,
+      $pup_templates  => $pup_templates,
+      $discourse_root => $discourse_root,
     }
     ->
     class { ::discourse::service: discourse_root => $discourse_root }
