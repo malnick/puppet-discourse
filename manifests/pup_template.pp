@@ -1,5 +1,5 @@
 define discourse::pup_template (
-  $template             => $name,
+  $template             = $name,
   $discourse_root,
   $pup_template_module,
 ){
