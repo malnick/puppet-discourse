@@ -8,4 +8,5 @@ define discourse::pup_template (
     path      => "${discourse_root}/containers/${template}",
     content   => template("${pup_templates_module}/${template}"
   }
+
 }
