@@ -9,7 +9,6 @@ class discourse::config (
     file { "${discourse_root}/containers/${t}":
       ensure  => file,
       content => template("${pup_templates_module}/${t}", 
-      notify  => Exec['bootstrap_discourse'],
     }
   }
 }
