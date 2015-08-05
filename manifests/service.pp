@@ -18,6 +18,7 @@ class discourse::service (
     exec { 'bootstrap_discourse':
         cwd         => "${discourse_root}",
         command     => "${discourse_root}/./launcher bootstrap app < y",
+        refreshonly => true,
         timeout     => '0',
         logoutput   => true,
         refreshonly => true,
