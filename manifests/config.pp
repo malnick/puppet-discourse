@@ -13,7 +13,7 @@ class discourse::config (
 
   file {$main_template:
     ensure    => file,
-    path      => "${discourse_root}/templates/${main_base}",
+    path      => "${discourse_root}/containers/${main_base}",
     content   => template("${pup_templates_module}/${main_template}"),
   }
 
