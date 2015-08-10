@@ -8,7 +8,7 @@ class discourse::service (
   file { '/etc/init.d/discourse':
     ensure      => file,
     mode        => '0755',
-    source      => 'puppet:///modules/discourse/discourse_init.erb',
+    content     => template('discourse/discourse_init.erb'),
     notify      => Service['discourse'],
   }
 
