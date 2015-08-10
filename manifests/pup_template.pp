@@ -6,7 +6,7 @@ define discourse::pup_template (
   $temp_base = basename($template, '.erb')
   file { $template:
     ensure    => file,
-    path      => "${discourse_root}/containers/${temp_base}",
+    path      => "${discourse_root}/templates/${temp_base}",
     content   => template("${pup_templates_module}/${template}")
   }
 

@@ -10,4 +10,5 @@ class discourse::params {
     $discourse_project_repo     = 'https://github.com/discourse/discourse_docker.git'
     $pup_templates              = ['web_only.yml']
     $pup_templates_module       = 'discourse'
+    $main_template              = undef
 }

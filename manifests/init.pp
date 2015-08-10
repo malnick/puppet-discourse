@@ -38,6 +38,7 @@
 class discourse (
     $discourse_root             = $discourse::params::discourse_root,
     $manage_docker              = $discourse::params::manage_docker,
+    $main_template              = $discourse::params::main_template,
     $pup_templates              = $discourse::params::pup_templates,
     $pup_templates_module       = $discourse::params::pup_templates_module,
     $discourse_project_repo     = $discourse::params::discourse_project_repo,
@@ -56,6 +57,7 @@ class discourse (
       ssl_cert              => $ssl_cert,
       ssl_key               => $ssl_key,
       pup_templates         => $pup_templates,
+      main_template         => $main_template,
       pup_templates_module  => $pup_templates_module,
       discourse_root        => $discourse_root,
       mandril_api_key       => $mandril_api_key,
