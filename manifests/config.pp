@@ -19,9 +19,10 @@ class discourse::config (
     content   => template("${pup_templates_module}/${main_template}"),
   }
 
-  discourse::pup_template { $pup_templates:
-    pup_templates_module  => $pup_templates_module,
-    discourse_root        => $discourse_root,
-    psql_password         => $psql_password,
+  $temp_base = basename($template, '.erb')
+  file { $template:
+    ensure    => file,
+    path      => "${discourse_root}/templates/${temp_base}",
+    content   => template("${pup_templates_module}/${template}")
   }
 }
