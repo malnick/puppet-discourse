@@ -62,7 +62,7 @@ class discourse (
       pup_templates_module  => $pup_templates_module,
       discourse_root        => $discourse_root,
       smtp_password         => $smtp_password,
-      psql_password         => $psql_passwor,
+      psql_password         => $psql_password,
     }
    # ->
    # class { ::discourse::service: discourse_root => $discourse_root }
