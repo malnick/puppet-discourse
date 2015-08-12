@@ -64,8 +64,8 @@ class discourse (
       smtp_password         => $smtp_password,
       psql_password         => $psql_passwor,
     }
-    ->
-    class { ::discourse::service: discourse_root => $discourse_root }
+   # ->
+   # class { ::discourse::service: discourse_root => $discourse_root }
 
 }
     
