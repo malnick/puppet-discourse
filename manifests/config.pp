@@ -1,4 +1,6 @@
 class discourse::config (
+  $psql_password              = undef,
+  $smtp_password              = undef,
   $main_template              = undef,
   $mandril_api_key            = undef,
   $discourse_psql_pw          = undef,

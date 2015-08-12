@@ -45,7 +45,8 @@ class discourse (
     $ssl_cert                   = undef,
     $ssl_key                    = undef,
     $mandril_api_key            = undef,
-    $discourse_psql_pw          = undef,
+    $smtp_password              = undef,
+    $psql_password              = undef,
 ) inherits discourse::params {
     class { ::discourse::install:
       discourse_root          => $discourse_root,
@@ -60,8 +61,8 @@ class discourse (
       main_template         => $main_template,
       pup_templates_module  => $pup_templates_module,
       discourse_root        => $discourse_root,
-      mandril_api_key       => $mandril_api_key,
-      discourse_psql_pw     => $discourse_psql_pw,
+      smtp_password         => $smtp_password,
+      psql_password         => $psql_passwor,
     }
     ->
     class { ::discourse::service: discourse_root => $discourse_root }
