@@ -22,5 +22,6 @@ class discourse::config (
   discourse::pup_template { $pup_templates:
     pup_templates_module  => $pup_templates_module,
     discourse_root        => $discourse_root,
+    psql_password         => $psql_password,
   }
 }
