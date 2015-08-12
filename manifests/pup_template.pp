@@ -1,8 +1,8 @@
 define discourse::pup_template (
-  $psql_password        = undef,
   $template             = $name,
   $discourse_root,
   $pup_templates_module,
+  $psql_password,
 ){
   $temp_base = basename($template, '.erb')
   file { $template:
