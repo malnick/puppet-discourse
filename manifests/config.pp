@@ -18,6 +18,7 @@ class discourse::config (
     path      => "${discourse_root}/containers/${main_base}",
     content   => template("${pup_templates_module}/${main_template}"),
   }
+  notify {"${psql_password}":}
 
   discourse::pup_template { $pup_templates:
     pup_templates_module  => $pup_templates_module,
